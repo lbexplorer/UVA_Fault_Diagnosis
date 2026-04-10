@@ -1,0 +1,7 @@
+﻿,GPS,RC,Accelerometer,Gyroscope,Compass,Barometer
+GPS,1.2,0.4,0.1,0.1,0.6,0.6
+RC,0.0,1.9,0.0,0.1,0.2,0.8
+Accelerometer,0.3,0.1,1.5,0.8,0.1,0.2
+Gyroscope,0.1,0.2,1.5,1.0,0.0,0.2
+Compass,0.2,0.3,0.1,0.2,1.1,1.1
+Barometer,0.4,0.4,0.0,0.0,1.2,1.0

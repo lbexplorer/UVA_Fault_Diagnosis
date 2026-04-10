@@ -4,11 +4,18 @@
 # Keep Git metadata and this ignore file
 !.gitignore
 
+# Never publish project-specific SSH keys
+.git-ssh/
+
 # Keep the dataset we want to publish
 !datasets/
 !datasets/BASiC/
 !datasets/BASiC/small_data_analysis_pack/
 !datasets/BASiC/small_data_analysis_pack/**
+
+# Keep experiment outputs for result tracking
+!outputs/
+!outputs/**
 
 # Optional project note
 !README.md
