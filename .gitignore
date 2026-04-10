@@ -1,0 +1,14 @@
+# Ignore everything by default
+*
+
+# Keep Git metadata and this ignore file
+!.gitignore
+
+# Keep the dataset we want to publish
+!datasets/
+!datasets/BASiC/
+!datasets/BASiC/small_data_analysis_pack/
+!datasets/BASiC/small_data_analysis_pack/**
+
+# Optional project note
+!README.md

@@ -1,0 +1,7 @@
+fault_class,sample_folder,fault_row_index,fault_time,window_start_row,window_end_row,window_size_rows,window_sample_file
+Accelerometer Failure,2022-07-26 22-42-02 (Accelerometer Failure),68041,205689358,67741,68341,601,Accelerometer_Failure_fault_window.csv
+Barometer Failure,2022-07-26 23-12-59 (Barometer Failure),50270,832820905,49970,50570,601,Barometer_Failure_fault_window.csv
+Compass Failure,2022-07-30 10-17-43 (Compass Failure),46257,186994339,45957,46557,601,Compass_Failure_fault_window.csv
+GPS Failure,2022-07-26 20-51-21 (GPS Failure),55310,1353998184,55010,55610,601,GPS_Failure_fault_window.csv
+Gyro Failure,2022-07-26 22-52-16 (Gyro Failure),31673,181140015,31373,31973,601,Gyro_Failure_fault_window.csv
+RC Failure,2022-07-29 23-07-00 (RC Failure),53760,210654038,53460,54060,601,RC_Failure_fault_window.csv
