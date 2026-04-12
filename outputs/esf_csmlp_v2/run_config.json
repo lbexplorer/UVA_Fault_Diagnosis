@@ -1,0 +1,27 @@
+{
+  "data_root": "datasets/BASiC/Processed Data",
+  "metadata_csv": "",
+  "output_dir": "outputs/esf_csmlp_v2",
+  "window_sec": 1.0,
+  "feature_profile": "curated",
+  "stats_mode": "enhanced",
+  "loss": "weighted_ce",
+  "test_size": 0.3,
+  "repeats": 10,
+  "epochs": 120,
+  "batch_size": 16,
+  "lr": 0.001,
+  "hidden_dims": [
+    256,
+    128
+  ],
+  "dropout": 0.3,
+  "seed": 42,
+  "use_augmentation": false,
+  "augment_shifts_ms": [
+    -150,
+    -75,
+    75,
+    150
+  ]
+}

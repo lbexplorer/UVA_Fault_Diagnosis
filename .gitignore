@@ -1,0 +1,15 @@
+# Ignore everything by default
+*
+
+# Keep Git metadata and this ignore file
+!.gitignore
+
+# Optional project note
+!README.md
+
+# Never publish project-specific SSH keys
+.git-ssh/
+
+# Keep experiment outputs for result tracking
+!outputs/
+!outputs/**
