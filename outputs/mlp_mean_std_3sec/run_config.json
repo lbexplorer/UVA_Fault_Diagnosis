@@ -1,0 +1,27 @@
+{
+  "data_root": "datasets/BASiC/Processed Data",
+  "metadata_csv": "datasets/BASiC/small_data_analysis_pack/metadata.csv",
+  "output_dir": "outputs/mlp_mean_std_3sec",
+  "window_sec": 3.0,
+  "feature_profile": "curated",
+  "stats_mode": "mean_std",
+  "loss": "weighted_ce",
+  "test_size": 0.3,
+  "repeats": 10,
+  "epochs": 120,
+  "batch_size": 16,
+  "lr": 0.001,
+  "hidden_dims": [
+    256,
+    128
+  ],
+  "dropout": 0.3,
+  "seed": 42,
+  "use_augmentation": true,
+  "augment_shifts_ms": [
+    -150,
+    -75,
+    75,
+    150
+  ]
+}
