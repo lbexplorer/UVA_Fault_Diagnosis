@@ -17,5 +17,10 @@
 !outputs/
 !outputs/**
 
+# Keep training scripts for version control
+!uav_fault_detection_binary.py
+!uav_fault_new_method_v2.py
+!uav_fault_tree_baseline.py
+
 # Optional project note
 !README.md
