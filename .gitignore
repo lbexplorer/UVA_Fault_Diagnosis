@@ -22,5 +22,10 @@
 !uav_fault_new_method_v2.py
 !uav_fault_tree_baseline.py
 
-# Optional project note
+# Keep research and documentation files
 !README.md
+!研究方案v1.md
+!研究方案v2.md
+!数据集介绍.md
+!实验方案/
+!实验方案/**
