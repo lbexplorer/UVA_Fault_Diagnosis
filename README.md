@@ -1,102 +1,181 @@
 # UAV Fault Diagnosis
 
-本仓库用于开展无人机多传感器故障诊断实验，当前重点任务是基于 BASiC 数据集完成 `stage-2` 六类故障分类。
+本仓库用于开展无人机多传感器故障诊断实验，基于 BASiC 数据集实现完整的**两阶段故障检测与归因框架**。
 
-## 当前实验目标
+## 🎯 项目目标
 
-- 任务: 基于飞行日志窗口，对故障飞行样本进行六分类
-- 类别: `GPS`、`RC`、`Accelerometer`、`Gyroscope`、`Compass`、`Barometer`
-- 数据范围: 当前实验使用 60 个故障飞行样本
-- 数据源: `datasets/BASiC/Processed Data`
-- 输出目录: `outputs/`
+构建完整的无人机故障诊断体系：
 
-当前实验关注两个问题:
+**第一阶段：故障检测（二分类）**
+- 任务：判断局部飞控窗口是否包含故障症状
+- 输入：时间窗口内的多传感器遥测数据
+- 输出：Failure vs No Failure
+- 数据规模：70 个 flight（10 No Failure + 60 Failure）
 
-1. 故障发生附近的时序窗口应该如何截取
-2. 在小样本条件下，统计特征配合哪类分类器更有效
+**第二阶段：故障归因（六分类）**
+- 任务：在确认存在故障的前提下，识别故障类型
+- 输入：故障点附近的时序窗口数据
+- 输出：6 类传感器故障（GPS、RC、Accelerometer、Gyroscope、Compass、Barometer）
+- 数据规模：60 个故障 flight（每类 10 个）
 
-## 仓库结构
+## 📊 最新实验成果
+
+### 六分类任务性能对比（3秒窗口，增强统计特征）
+
+| 模型 | 准确率 | 宏平均 F1 | 标准差 | 相对改进 |
+|-----|------|----------|------|---------|
+| MLP | 43.89% | 42.71% | 7.64% | - |
+| Random Forest | 55.56% | 54.39% | 9.74% | +26.6% |
+| **XGBoost** | **75.00%** | **74.23%** | 10.18% | **+70.7%** |
+
+### 二分类任务性能（3秒窗口，增强统计特征）
+
+| 模型 | 准确率 | F1 分数 | ROC-AUC |
+|-----|------|--------|---------|
+| MLP | 81.90% | 89.20% | 0.665 |
+
+**关键发现：**
+- XGBoost 在六分类任务上展现出显著优势，准确率达到 75%
+- 二分类任务相对简单，MLP 即可达到 82% 准确率
+- 树模型在小样本数据集上表现更稳定
+
+## 📁 仓库结构
 
 ```text
 .
 ├── datasets/
 │   └── BASiC/
 │       └── Processed Data/          # 飞行日志主数据
-├── outputs/                         # 各实验输出结果
-├── uav_fault_new_method_v2.py       # MLP 方案
-├── uav_fault_tree_baseline.py       # RF / XGB 树模型基线
-└── README.md
+│           ├── 2022-07-26 05-49-12 (No Failure)/
+│           ├── 2022-07-26 06-25-08 (RC Failure)/
+│           └── ...
+├── outputs/                         # 实验结果输出目录
+│   ├── esf_csmlp_v2/               # MLP 六分类结果
+│   ├── enhanced_rf_3sec/           # RF 六分类结果
+│   ├── enhanced_xgb_3sec/          # XGBoost 六分类结果
+│   ├── failure_vs_nofailure_mlp_3sec/  # MLP 二分类结果
+│   └── README.md                   # 实验结果索引
+├── 实验方案/                        # 实验方案文档
+│   └── failure_vs_nofailure_experiment_plan.md
+├── uav_fault_detection_binary.py    # 二分类故障检测脚本
+├── uav_fault_new_method_v2.py       # 六分类 MLP 方案
+├── uav_fault_tree_baseline.py       # 树模型基线脚本
+├── 研究方案v1.md                     # 原始研究方案
+├── 研究方案v2.md                     # 扩展研究方案
+├── 数据集介绍.md                     # 数据集说明
+└── README.md                        # 项目说明（本文件）
 ```
 
-## 当前进行中的实验主线
+## 🚀 核心实验脚本
 
-### 1. 统计特征 + 轻量 MLP
+### 1. 二分类故障检测
+**脚本**: `uav_fault_detection_binary.py`
+- 任务：Failure vs No Failure 二分类
+- 模型支持：MLP、Random Forest、XGBoost
+- 特征：精选传感器 + 增强统计量
+- 窗口：3秒（主设定）
 
-脚本: `uav_fault_new_method_v2.py`
+### 2. 六分类故障归因
+**脚本**: `uav_fault_new_method_v2.py`
+- 任务：6 类传感器故障分类
+- 模型：轻量 MLP（256-128 隐藏层）
+- 特征：精选传感器 + 增强统计量
+- 窗口：1秒 / 3秒 对比
 
-核心流程:
+### 3. 树模型基线对比
+**脚本**: `uav_fault_tree_baseline.py`
+- 任务：六分类故障归因
+- 模型：Random Forest、XGBoost
+- 特征：与 MLP 方案相同设置
+- 目的：验证树模型在小样本上的优势
 
-- 自动遍历 `Processed Data` 下每个飞行样本主 CSV
-- 根据故障标签名推断类别，忽略 `No Failure`
-- 结合 `Status` 跳变与可选 `metadata.csv` 定位故障锚点
-- 以锚点为中心截取时间窗口
-- 对精选传感器列构造统计特征
-- 使用分层随机划分进行 10 次重复评估
+## 🔧 技术特色
 
-### 2. 树模型基线对比
+### 1. 稳定的故障锚点定位
+- 优先使用 `metadata.csv` 中的故障时间/行号
+- 自动回退到 `Status` 跳变检测
+- 导出 `sample_anchor_check.csv` 用于人工验证
 
-脚本: `uav_fault_tree_baseline.py`
+### 2. 精选传感器特征集
+基于无人机飞行控制原理，优先选择与故障诊断相关的 51 个关键特征：
+- **GPS/导航**：位置、速度、高度、精度等
+- **IMU/姿态**：加速度、角速度、EG/EA 等
+- **磁罗盘**：磁场强度、航向等
+- **气压计**：气压、温度、高度等
+- **RC/控制**：遥控信号、姿态控制等
 
-目的:
+### 3. 分层统计特征工程
+- **基础模式** (mean_std)：均值、标准差（102 维）
+- **增强模式** (enhanced)：13 类统计量（663 维）
+  - 位置统计：mean, std, max, min, range
+  - 分布统计：median, q25, q75
+  - 动态统计：rms, abs_mean, diff_mean, diff_std, slope
 
-- 在相同锚点、窗口与统计特征设置下，验证树模型是否比 MLP 更适合当前小样本任务
-- 当前已完成 `Random Forest` 与 `XGBoost` 两组基线
+### 4. 小样本学习优化
+- **类别不平衡处理**：加权交叉熵 + Focal Loss
+- **数据增强**：时间窗口偏移（±150ms, ±75ms）
+- **稳定评估**：10 折分层交叉验证
 
-## 已进行的关键改进
+## 📈 实验配置快速开始
 
-相较于只做简单窗口分类的初始思路，当前实验已经做了这些改进:
+### 六分类实验（推荐 XGBoost）
+```bash
+python uav_fault_tree_baseline.py \
+  --data-root datasets/BASiC/Processed\ Data \
+  --output-dir outputs/xgb_best \
+  --model xgb \
+  --window-sec 3.0 \
+  --feature-profile curated \
+  --stats-mode enhanced
+```
 
-### 1. 故障锚点定位更稳定
+### 二分类实验
+```bash
+python uav_fault_detection_binary.py \
+  --data-root datasets/BASiC/Processed\ Data \
+  --output-dir outputs/binary_best \
+  --model xgb \
+  --window-sec 3.0 \
+  --feature-profile curated \
+  --stats-mode enhanced
+```
 
-- 优先使用 `metadata.csv` 中记录的故障时间/行号
-- 若缺失元数据，则回退到 `Status` 从正常到故障的跳变点
-- 对所有样本导出 `sample_anchor_check.csv`，便于人工检查锚点是否合理
+## 📋 研究方案演进
 
-这一步的意义是尽量让特征窗口覆盖真正的故障触发附近，而不是任意时间段。
+- **研究方案 v1**：聚焦六分类任务，提出统计特征增强 + MLP 改进
+- **研究方案 v2**：扩展为完整两阶段框架，系统对比多模型架构
 
-### 2. 使用人工筛选的关键传感器特征
+## 🔄 版本控制与协作
 
-当前不是直接使用所有数值列，而是优先采用一组与故障诊断更相关的精选特征，包括:
+项目采用 Git 进行版本控制，所有实验脚本、结果和文档均已推送到 GitHub：
 
-- GPS / 位置与速度相关列
-- IMU 加速度与角速度相关列
-- 磁罗盘与航向相关列
-- 气压计与高度相关列
-- RC / 姿态控制相关列
+- **仓库地址**：https://github.com/lbexplorer/UVA_Fault_Diagnosis
+- **持续跟踪**：所有 Python 脚本和关键文档纳入版本控制
+- **实验复现**：完整的运行配置和结果保存在 `outputs/` 目录
 
-当前精选列数为 51 个，对应:
+## 🎯 后续研究方向
 
-- `enhanced` 统计特征时，总特征维度为 663
-- `mean_std` 统计特征时，总特征维度为 102
+### 短期目标
+- [ ] 补全二分类任务的 RF/XGBoost 实验
+- [ ] 特征重要性分析与消融实验
+- [ ] 超参数网格搜索优化
 
-### 3. 从简单统计量扩展到增强统计量
+### 中期目标
+- [ ] 直接时序模型探索（1D-CNN + 注意力）
+- [ ] 跨 flight 泛化性验证
+- [ ] 多源数据融合策略
 
-当前支持两组统计方式:
+### 长期愿景
+- [ ] 实时推理系统部署
+- [ ] 故障生命周期预测
+- [ ] 多飞行器协同诊断
 
-- `mean_std`: 均值、标准差
-- `enhanced`: 均值、标准差、最大值、最小值、极差、RMS、中位数、四分位数、绝对均值、差分统计、斜率
+---
 
-这让模型不仅看到窗口内的平均水平，也能看到波动、趋势和动态变化。
-
-### 4. 小样本不平衡处理
-
-在 MLP 方案中，已经加入:
-
-- 类别加权损失
-- `WeightedRandomSampler`
-- 可选窗口平移增强 `--use-augmentation`
-
-其中数据增强通过对锚点做毫秒级左右偏移，生成多个训练窗口，降低模型对单一定位点的过拟合。
+**最后更新**：2026-04-14
+**版本**：v2.0
+**数据集**：BASiC Processed Data
+**实验状态**：活跃进行中
 
 ### 5. 增加窗口长度对比实验
 
