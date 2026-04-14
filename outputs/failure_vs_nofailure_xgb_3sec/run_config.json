@@ -1,0 +1,33 @@
+{
+  "data_root": "/home/liubo/software_falut/datasets/BASiC/Processed Data",
+  "metadata_csv": "/home/liubo/software_falut/datasets/BASiC/small_data_analysis_pack/metadata.csv",
+  "output_dir": "/home/liubo/software_falut/outputs/failure_vs_nofailure_xgb_3sec",
+  "window_sec": 3.0,
+  "feature_profile": "curated",
+  "stats_mode": "enhanced",
+  "model": "xgb",
+  "loss": "weighted_ce",
+  "test_size": 0.3,
+  "repeats": 10,
+  "epochs": 120,
+  "batch_size": 16,
+  "lr": 0.001,
+  "hidden_dims": [
+    256,
+    128
+  ],
+  "dropout": 0.3,
+  "seed": 42,
+  "use_augmentation": false,
+  "augment_shifts_ms": [
+    -150,
+    -75,
+    75,
+    150
+  ],
+  "normal_extra_modes": [
+    "q1",
+    "q3"
+  ],
+  "no_failure_anchor_mode": "middle"
+}
