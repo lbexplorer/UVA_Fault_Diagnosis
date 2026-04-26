@@ -21,6 +21,9 @@
 !uav_fault_detection_binary.py
 !uav_fault_new_method_v2.py
 !uav_fault_tree_baseline.py
+!plot_paper_composite_figures.py
+!plot_uav_results.py
+!plot_uav_results_journal-v2.py
 
 # Keep research and documentation files
 !README.md
