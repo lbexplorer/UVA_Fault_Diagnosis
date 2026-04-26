@@ -1,0 +1,16 @@
+Experiment,Label,Model,Window,Feature,Accuracy,MacroPrecision,MacroRecall,MacroF1,StdF1
+G1,"MLP
+1 s
+Enhanced",MLP,1 s,Enhanced,42.78,45.85,42.78,41.21,9.73
+G2,"MLP
+3 s
+Enhanced",MLP,3 s,Enhanced,43.89,47.7,43.89,42.71,7.74
+G3,"MLP
+3 s
+Mean/Std",MLP,3 s,Mean/Std,43.89,46.82,43.89,42.29,6.39
+G4,"RF
+3 s
+Enhanced",Random Forest,3 s,Enhanced,55.56,56.33,55.56,54.39,9.74
+G5,"XGBoost
+3 s
+Enhanced",XGBoost,3 s,Enhanced,75.0,79.5,75.0,74.23,10.18

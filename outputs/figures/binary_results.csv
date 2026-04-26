@@ -1,0 +1,4 @@
+Experiment,Label,Model,Window,Feature,Accuracy,F1,ROC_AUC
+G0,"MLP
+3 s
+Enhanced",MLP,3 s,Enhanced,81.9,89.2,0.665

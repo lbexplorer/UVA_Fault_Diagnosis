@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Created with matplotlib (https://matplotlib.org/) -->
+<svg height="245.675359pt" version="1.1" viewBox="0 0 305.17 245.675359" width="305.17pt" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <style type="text/css">
+*{stroke-linecap:butt;stroke-linejoin:round;}
+  </style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M -0 245.675359 
+L 305.17 245.675359 
+L 305.17 0 
+L -0 0 
+z
+" style="fill:#ffffff;"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 35.89 215.185359 
+L 303.73 215.185359 
+L 303.73 4.513359 
+L 35.89 4.513359 
+z
+" style="fill:#ffffff;"/>
+   </g>
+   <g id="patch_3">
+    <path clip-path="url(#p8b1c883991)" d="M 48.064545 215.185359 
+L 100.582193 215.185359 
+L 100.582193 42.644991 
+L 48.064545 42.644991 
+z
+" style="fill:url(#h638a41b4d8);"/>
+   </g>
+   <g id="patch_4">
+    <path clip-path="url(#p8b1c883991)" d="M 143.551176 215.185359 
+L 196.068824 215.185359 
+L 196.068824 27.265935 
+L 143.551176 27.265935 
+z
+" style="fill:url(#h638a41b4d8);"/>
+   </g>
+   <g id="patch_5">
+    <path clip-path="url(#p8b1c883991)" d="M 239.037807 215.185359 
+L 291.555455 215.185359 
+L 291.555455 75.088479 
+L 239.037807 75.088479 
+z
+" style="fill:url(#h638a41b4d8);"/>
+   </g>
+   <g id="matplotlib.axis_1">
+    <g id="xtick_1">
+     <g id="line2d_1">
+      <defs>
+       <path d="M 0 0 
+L 0 4 
+" id="m807373a646" style="stroke:#000000;stroke-width:0.9;"/>
+      </defs>
+      <g>
+       <use style="stroke:#000000;stroke-width:0.9;" x="74.323369" xlink:href="#m807373a646" y="215.185359"/>
+      </g>
+     </g>
+     <g id="text_1">
+      <text style="font-family:STIXGeneral;font-size:9px;font-style:normal;font-weight:normal;text-anchor:middle;" transform="rotate(-0, 74.323369, 228.823641)" x="74.323369" y="228.823641">Accuracy</text>
+     </g>
+    </g>
+    <g id="xtick_2">
+     <g id="line2d_2">
+      <g>
+       <use style="stroke:#000000;stroke-width:0.9;" x="169.81" xlink:href="#m807373a646" y="215.185359"/>
+      </g>
+     </g>
+     <g id="text_2">
+      <text style="font-family:STIXGeneral;font-size:9px;font-style:normal;font-weight:normal;text-anchor:middle;" transform="rotate(-0, 169.81, 228.832078)" x="169.81" y="228.832078">F1</text>
+     </g>
+    </g>
+    <g id="xtick_3">
+     <g id="line2d_3">
+      <g>
+       <use style="stroke:#000000;stroke-width:0.9;" x="265.296631" xlink:href="#m807373a646" y="215.185359"/>
+      </g>
+     </g>
+     <g id="text_3">
+      <text style="font-family:STIXGeneral;font-size:9px;font-style:normal;font-weight:normal;text-anchor:middle;" transform="rotate(-0, 265.296631, 228.832078)" x="265.296631" y="228.832078">ROC-AUC</text>
+     </g>
+    </g>
+    <g id="text_4">
+     <text style="font-family:STIXGeneral;font-size:10.5px;font-style:normal;font-weight:normal;text-anchor:middle;" transform="rotate(-0, 169.81, 241.956531)" x="169.81" y="241.956531">Metric</text>
+    </g>
+   </g>
+   <g id="matplotlib.axis_2">
+    <g id="ytick_1">
+     <g id="line2d_4">
+      <defs>
+       <path d="M 0 0 
+L -4 0 
+" id="mc555cb74ad" style="stroke:#000000;stroke-width:0.9;"/>
+      </defs>
+      <g>
+       <use style="stroke:#000000;stroke-width:0.9;" x="35.89" xlink:href="#mc555cb74ad" y="215.185359"/>
+      </g>
+     </g>
+     <g id="text_5">
+      <text style="font-family:STIXGeneral;font-size:9px;font-style:normal;font-weight:normal;text-anchor:end;" transform="rotate(-0, 28.39, 218.258719)" x="28.39" y="218.258719">0</text>
+     </g>
+    </g>
+    <g id="ytick_2">
+     <g id="line2d_5">
+      <g>
+       <use style="stroke:#000000;stroke-width:0.9;" x="35.89" xlink:href="#mc555cb74ad" y="194.118159"/>
+      </g>
+     </g>
+     <g id="text_6">
+      <text style="font-family:STIXGeneral;font-size:9px;font-style:normal;font-weight:normal;text-anchor:end;" transform="rotate(-0, 28.39, 197.191519)" x="28.39" y="197.191519">10</text>
+     </g>
+    </g>
+    <g id="ytick_3">
+     <g id="line2d_6">
+      <g>
+       <use style="stroke:#000000;stroke-width:0.9;" x="35.89" xlink:href="#mc555cb74ad" y="173.050959"/>
+      </g>
+     </g>
+     <g id="text_7">
+      <text style="font-family:STIXGeneral;font-size:9px;font-style:normal;font-weight:normal;text-anchor:end;" transform="rotate(-0, 28.39, 176.124319)" x="28.39" y="176.124319">20</text>
+     </g>
+    </g>
+    <g id="ytick_4">
+     <g id="line2d_7">
+      <g>
+       <use style="stroke:#000000;stroke-width:0.9;" x="35.89" xlink:href="#mc555cb74ad" y="151.983759"/>
+      </g>
+     </g>
+     <g id="text_8">
+      <text style="font-family:STIXGeneral;font-size:9px;font-style:normal;font-weight:normal;text-anchor:end;" transform="rotate(-0, 28.39, 155.057119)" x="28.39" y="155.057119">30</text>
+     </g>
+    </g>
+    <g id="ytick_5">
+     <g id="line2d_8">
+      <g>
+       <use style="stroke:#000000;stroke-width:0.9;" x="35.89" xlink:href="#mc555cb74ad" y="130.916559"/>
+      </g>
+     </g>
+     <g id="text_9">
+      <text style="font-family:STIXGeneral;font-size:9px;font-style:normal;font-weight:normal;text-anchor:end;" transform="rotate(-0, 28.39, 133.989919)" x="28.39" y="133.989919">40</text>
+     </g>
+    </g>
+    <g id="ytick_6">
+     <g id="line2d_9">
+      <g>
+       <use style="stroke:#000000;stroke-width:0.9;" x="35.89" xlink:href="#mc555cb74ad" y="109.849359"/>
+      </g>
+     </g>
+     <g id="text_10">
+      <text style="font-family:STIXGeneral;font-size:9px;font-style:normal;font-weight:normal;text-anchor:end;" transform="rotate(-0, 28.39, 112.922719)" x="28.39" y="112.922719">50</text>
+     </g>
+    </g>
+    <g id="ytick_7">
+     <g id="line2d_10">
+      <g>
+       <use style="stroke:#000000;stroke-width:0.9;" x="35.89" xlink:href="#mc555cb74ad" y="88.782159"/>
+      </g>
+     </g>
+     <g id="text_11">
+      <text style="font-family:STIXGeneral;font-size:9px;font-style:normal;font-weight:normal;text-anchor:end;" transform="rotate(-0, 28.39, 91.855519)" x="28.39" y="91.855519">60</text>
+     </g>
+    </g>
+    <g id="ytick_8">
+     <g id="line2d_11">
+      <g>
+       <use style="stroke:#000000;stroke-width:0.9;" x="35.89" xlink:href="#mc555cb74ad" y="67.714959"/>
+      </g>
+     </g>
+     <g id="text_12">
+      <text style="font-family:STIXGeneral;font-size:9px;font-style:normal;font-weight:normal;text-anchor:end;" transform="rotate(-0, 28.39, 70.788319)" x="28.39" y="70.788319">70</text>
+     </g>
+    </g>
+    <g id="ytick_9">
+     <g id="line2d_12">
+      <g>
+       <use style="stroke:#000000;stroke-width:0.9;" x="35.89" xlink:href="#mc555cb74ad" y="46.647759"/>
+      </g>
+     </g>
+     <g id="text_13">
+      <text style="font-family:STIXGeneral;font-size:9px;font-style:normal;font-weight:normal;text-anchor:end;" transform="rotate(-0, 28.39, 49.721119)" x="28.39" y="49.721119">80</text>
+     </g>
+    </g>
+    <g id="ytick_10">
+     <g id="line2d_13">
+      <g>
+       <use style="stroke:#000000;stroke-width:0.9;" x="35.89" xlink:href="#mc555cb74ad" y="25.580559"/>
+      </g>
+     </g>
+     <g id="text_14">
+      <text style="font-family:STIXGeneral;font-size:9px;font-style:normal;font-weight:normal;text-anchor:end;" transform="rotate(-0, 28.39, 28.653919)" x="28.39" y="28.653919">90</text>
+     </g>
+    </g>
+    <g id="ytick_11">
+     <g id="line2d_14">
+      <g>
+       <use style="stroke:#000000;stroke-width:0.9;" x="35.89" xlink:href="#mc555cb74ad" y="4.513359"/>
+      </g>
+     </g>
+     <g id="text_15">
+      <text style="font-family:STIXGeneral;font-size:9px;font-style:normal;font-weight:normal;text-anchor:end;" transform="rotate(-0, 28.39, 7.586719)" x="28.39" y="7.586719">100</text>
+     </g>
+    </g>
+    <g id="text_16">
+     <text style="font-family:STIXGeneral;font-size:10.5px;font-style:normal;font-weight:normal;text-anchor:middle;" transform="rotate(-90, 8.611172, 109.849359)" x="8.611172" y="109.849359">Score (%)</text>
+    </g>
+   </g>
+   <g id="patch_6">
+    <path d="M 35.89 215.185359 
+L 35.89 4.513359 
+" style="fill:none;stroke:#000000;stroke-linecap:square;stroke-linejoin:miter;stroke-width:0.9;"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 35.89 215.185359 
+L 303.73 215.185359 
+" style="fill:none;stroke:#000000;stroke-linecap:square;stroke-linejoin:miter;stroke-width:0.9;"/>
+   </g>
+   <g id="text_17">
+    <text style="font-family:STIXGeneral;font-size:8.5px;font-style:normal;font-weight:normal;text-anchor:middle;" transform="rotate(-0, 74.323369, 38.600226)" x="74.323369" y="38.600226">81.90</text>
+   </g>
+   <g id="text_18">
+    <text style="font-family:STIXGeneral;font-size:8.5px;font-style:normal;font-weight:normal;text-anchor:middle;" transform="rotate(-0, 169.81, 23.22117)" x="169.81" y="23.22117">89.20</text>
+   </g>
+   <g id="text_19">
+    <text style="font-family:STIXGeneral;font-size:8.5px;font-style:normal;font-weight:normal;text-anchor:middle;" transform="rotate(-0, 265.296631, 71.043714)" x="265.296631" y="71.043714">66.50</text>
+   </g>
+   <g id="text_20">
+    <text style="font-family:STIXGeneral;font-size:8px;font-style:normal;font-weight:normal;text-anchor:end;" transform="rotate(-0, 298.3732, 205.022229)" x="298.3732" y="205.022229">ROC-AUC is scaled to 0–100</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p8b1c883991">
+   <rect height="210.672" width="267.84" x="35.89" y="4.513359"/>
+  </clipPath>
+ </defs>
+ <defs>
+  <pattern height="72" id="h638a41b4d8" patternUnits="userSpaceOnUse" width="72" x="0" y="0">
+   <rect fill="#1f77b4" height="73" width="73" x="0" y="0"/>
+   <path d="M -36 36 
+L 36 -36 
+M -30 42 
+L 42 -30 
+M -24 48 
+L 48 -24 
+M -18 54 
+L 54 -18 
+M -12 60 
+L 60 -12 
+M -6 66 
+L 66 -6 
+M 0 72 
+L 72 0 
+M 6 78 
+L 78 6 
+M 12 84 
+L 84 12 
+M 18 90 
+L 90 18 
+M 24 96 
+L 96 24 
+M 30 102 
+L 102 30 
+M 36 108 
+L 108 36 
+" style="fill:#000000;stroke:#000000;stroke-linecap:butt;stroke-linejoin:miter;stroke-width:1.0;"/>
+  </pattern>
+ </defs>
+</svg>
